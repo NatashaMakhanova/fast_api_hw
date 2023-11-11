@@ -45,7 +45,7 @@ def root() -> str:
 
 @app.post('/post')
 def post():
-    return Timestamp() #TODO
+    return post_db[0]
 
 
 @app.get('/dog')
@@ -79,9 +79,8 @@ def get_dog_pk(pk: int):
 def update_dog(pk: int, dog: Dog):
     for i in range(len(dogs_db)):
         if pk == dogs_db.get(i).pk:
-            dog_new = dogs_db[dog.pk]
-            dog_new = dog
-            return dog_new
+            dogs_db[dog.pk] = dog
+            return dogs_db[dog.pk]
     return 'Dog does not exist'
 
 
