@@ -49,13 +49,10 @@ def post():
 
 
 @app.get('/dog')
-def get_dogs():
-    return dogs_db
-
-
-@app.get('/dog')
-def get_dogs(kind: str):
+def get_dogs(kind: str = None):
     list_dogs = []
+    if kind is None:
+        return dogs_db
     for i in range(len(dogs_db)):
         if kind == dogs_db.get(i).kind:
             list_dogs.append(dogs_db.get(i))
