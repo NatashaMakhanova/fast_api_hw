@@ -49,6 +49,11 @@ def post():
 
 
 @app.get('/dog')
+def get_dogs():
+    return dogs_db
+
+
+@app.get('/dog')
 def get_dogs(kind: str):
     list_dogs = []
     for i in range(len(dogs_db)):
@@ -56,10 +61,6 @@ def get_dogs(kind: str):
             list_dogs.append(dogs_db.get(i))
     return list_dogs
 
-
-@app.get('/dog')
-def get_dogs():
-    return dogs_db
 
 
 @app.post('/dog')
