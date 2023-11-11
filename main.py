@@ -57,6 +57,11 @@ def get_dogs(kind: str):
     return list_dogs
 
 
+@app.get('/dog')
+def get_dogs():
+    return dogs_db
+
+
 @app.post('/dog')
 def create_dogs(dog: Dog) -> Dog:
     pk_ = len(dogs_db)
